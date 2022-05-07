@@ -47,8 +47,17 @@
     <div id="container"></div>
 
     <script>
+        let size = 16;
+        let quantity = 256;
+
+        let button = document.querySelector("button");
+        button.onclick = function () {
+            size = prompt("1-100", "16");
+            
+        };
+
         let container = document.querySelector("#container");
-        for (let row = 1; row <= 256; row++) {
+        for (let row = 1; row <= quantity; row++) {
             let card = document.createElement("div");
             card.id = "card";
             container.appendChild(card);
@@ -63,7 +72,7 @@
 
 
         container.addEventListener("mouseout", function (event) {
-            // highlight the mouseover target
+            // unhighlight the mouseover target
             event.target.style.backgroundColor = "white";
         });
 
