@@ -7,52 +7,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ETCH-A-SKETCH</title>
     <style>
-        .container {
+        * {
+            box-sizing: border-box;
+        }
+
+        #container {
             display: flex;
-            flex-shrink: 0;
-            
+            flex-wrap: wrap;
+            width:600px;
         }
 
-        .cardRow{
-            display:flex;
-            flex-flow: row wrap;
-            row-gap: 6px;
-            column-gap: 6px;
-
+        #container>div {
+            border: 1px solid black;
+            height: 40px;
+            width: 40px;
         }
 
-        .card {
-            display: flex;
-            border: 1px black solid;
-            margin:2px;
-            flex: 1 1 40px;
-            height: 40px;            
+        #container>div:nth-child(16n + 1) {
+            width: 100%;
+            border: 0;
+            height: 0;
         }
-
-
     </style>
 </head>
 
 <body>
-    <div class="container"></div>
+    <div  id="container"></div>
 
     <script>
-        let container = document.querySelector(".container");
-        for (let row = 1; row <= 16; row++) {
-            let cardRow = document.createElement("div");
-            cardRow.className = "cardRow";
-            container.appendChild(cardRow);
-            for (let column = 1; column <= 16; column++) {
-                let card = document.createElement("div");
-                card.className = "card";
-                cardRow.appendChild(card);
-            };
-            
-            //let card = document.createElement("div");
-           // card.className = "card";
-           // container.appendChild(card);
+        let container = document.querySelector("#container");
+        for (let row = 1; row <= 256; row++) {
+            let card = document.createElement("div");
+            card.id = "card";
+            container.appendChild(card);
         };
 
+
+        container.addEventListener("mouseover", function (event) {
+            // highlight the mouseover target
+            event.target.style.backgroundColor = "orange";
+        });
+
+
+        container.addEventListener("mouseover", function (event) {
+            // highlight the mouseover target
+            event.target.style.backgroundColor = "orange";
+        });
+
+        container.addEventListener("mouseout", function (event) {
+            // highlight the mouseover target
+            event.target.style.backgroundColor = "white";
+        });
+        
+
+        /*
+        //document.querySelectorAll(":hover");
+        const cardHover = document.querySelectorAll(":hover");
+        window.addEventListener("", function(){
+            console.log(cardHover);
+        })
+        
+        //const current = document.querySelector("div");
+        //current.addEventListener("mouseover",function(){
+        //    card.style.color = "blue";
+        //}); */
     </script>
 </body>
 
