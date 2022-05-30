@@ -20,6 +20,9 @@
         button {
             width: 80px;
             height: 40px;
+            margin-bottom: 24px;
+            background-color: cornflowerblue;
+            border-radius: 8px;
         }
 
         #container {
@@ -32,51 +35,10 @@
             height: 60px;
             width: 60px;
         }
-
-        #container>div:nth-child(16n + 1) {
-            width: 100%;
-            border: 0;
-            height: 0;
-        }
     </style>
 </head>
-
 <body>
     <button>Size</button>
-
     <div id="container"></div>
-
-    <script>
-        let size = 16;
-        let quantity = 256;
-
-        let button = document.querySelector("button");
-        button.onclick = function () {
-            size = prompt("1-100", "16");
-            
-        };
-
-        let container = document.querySelector("#container");
-        for (let row = 1; row <= quantity; row++) {
-            let card = document.createElement("div");
-            card.id = "card";
-            container.appendChild(card);
-        };
-
-
-        container.addEventListener("mouseover", function (event) {
-            if (container === event.target) return;
-            // highlight the mouseover target
-            event.target.style.backgroundColor = "orange";
-        });
-
-
-        container.addEventListener("mouseout", function (event) {
-            // unhighlight the mouseover target
-            event.target.style.backgroundColor = "white";
-        });
-
-    </script>
 </body>
-
 </html>
