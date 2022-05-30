@@ -8,7 +8,9 @@ const createCards = () => {
     card.classList.add(".card");
     card.style.width = cardSize;
     card.style.height = cardSize;
-    card.style.border = "1px solid grey";
+    card.style.backgroundColor = "black";
+    card.style.opacity = "0.0";
+    card.style.border = "1px solid black";
     container.appendChild(card);
   }
 };
@@ -25,8 +27,19 @@ button.onclick = function () {
   };
 };
 
+
+function getRandomRgb() {
+    let num = Math.round(0xffffff * Math.random());
+    let r = num >> 16;
+    let g = num >> 8 & 255;
+    let b = num & 255;
+    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+  };
+
 container.addEventListener("mouseover", function (event) {
-  if (container === event.target) return;
-  // highlight the mouseover target
-  event.target.style.backgroundColor = "orange";
+  if (container === event.target) return;  
+  //event.target.style.backgroundColor = getRandomRgb();
+  event.target.style.opacity = parseFloat(event.target.style.opacity) + 0.1;
+  //event.target.style.backgroundColor = "rgba(0,0,0,0.1)";
+
 });
